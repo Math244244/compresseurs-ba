@@ -1,0 +1,32 @@
+{
+  "name": "compresseurs-ba",
+  "version": "1.0.0",
+  "description": "Site web professionnel pour Compresseurs BA",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run watch:css",
+    "watch:css": "tailwindcss -i ./src/css/input.css -o ./public/css/style.css --watch",
+    "build:css": "tailwindcss -i ./src/css/input.css -o ./public/css/style.css --minify",
+    "build": "npm run build:css",
+    "serve": "firebase serve",
+    "firebase:serve": "firebase serve",
+    "firebase:deploy": "npm run build && firebase deploy",
+    "start:dev": "npm run build:css && firebase serve",
+    "start": "npm run start:dev"
+  },
+  "keywords": [
+    "compresseurs",
+    "industrie",
+    "website"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  },
+  "dependencies": {
+    "firebase-tools": "^13.0.0"
+  }
+}

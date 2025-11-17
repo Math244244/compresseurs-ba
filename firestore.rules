@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Collection des contacts - écriture publique SIMPLIFIÉE
+    match /contacts/{contactId} {
+      // Autoriser la création de nouveaux contacts depuis le formulaire public
+      // Validation basique : name, email et message doivent être des strings non vides
+      allow create: if request.resource.data.name is string 
+                    && request.resource.data.name.size() > 0
+                    && request.resource.data.email is string 
+                    && request.resource.data.email.size() > 0
+                    && request.resource.data.message is string
+                    && request.resource.data.message.size() > 0
+                    && request.resource.data.status == 'nouveau';
+      
+      // Seuls les utilisateurs authentifiés peuvent lire, modifier ou supprimer
+      allow read, update, delete: if request.auth != null;
+    }
+    
+    // Collection des produits d'occasion - lecture publique, écriture admin uniquement
+    match /produits_occasion/{produitId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+    }
+  }
+}
+
