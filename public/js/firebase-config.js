@@ -12,7 +12,8 @@ const firebaseConfig = {
   projectId: "compresseurs-ba",
   storageBucket: "compresseurs-ba.firebasestorage.app",
   messagingSenderId: "132158598676",
-  appId: "1:132158598676:web:6a8a845015ac63ce134101"
+  appId: "1:132158598676:web:6a8a845015ac63ce134101",
+  measurementId: "G-X188E19QH9"
 };
 
 // Initialiser Firebase
@@ -27,6 +28,7 @@ export async function saveContactMessage(formData) {
       name: formData.name,
       email: formData.email,
       phone: formData.phone || '',
+      subject: formData.subject || '',
       message: formData.message,
       timestamp: serverTimestamp(),
       status: 'nouveau'

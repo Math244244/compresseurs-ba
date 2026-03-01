@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /functions/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://compresseurs-ba.web.app/sitemap.xml
