@@ -80,16 +80,10 @@
   }
 
   .header-grid {
-    display: grid;
-    grid-template-columns: 240px 1fr 210px;
+    display: flex;
     align-items: center;
     gap: 1.5rem;
   }
-  @media (max-width: 1024px) {
-    .header-grid { grid-template-columns: auto 1fr; gap: 1rem; }
-  }
-
-  .logo-container { display: flex; align-items: center; }
 
   .nav-link {
     color: #FFFFFF !important;
